@@ -1,0 +1,53 @@
+- Installing Nginx
+# yum install nginx
+
+- Check if Nginx is running, enabled and started
+# systemctl status nginx
+# systemctl start nginx
+# systemctl enable nginx
+# curl http://127.0.0.1
+
+- Installing, restart and enableing Mysql
+# yum install mysql-server
+# systemctl restart mysqld.service
+# systemctl enable mysqld.service
+# systemctl status mysqld.service
+
+- Login to Mysql, create user and set password
+# mysql
+mysql > CREATE USER hendrik@localhost identified by 'nino';
+
+- Check the database and grant ALL previleges to the user
+mysql > show databases;
+mysql > GRANT ALL PRIVILEGES ON *.* TO 'hendrik'@'localhost';
+mysql > exit
+
+- Login to Mysql and set password for user (if necessery)
+# mysql -u hendrik -p
+mysql > SET PASSWORD FOR hendrik@localhost = 'nino';
+
+- Installing httpd
+# yum install httpd
+
+- Installing PHP-FPM and configuring PHP for processing
+# yum install php-fpm
+
+- Install PHP-CURL to make remote requests
+# yum install php-curl
+
+- Installing NB string module to allow UTF8 characteres to be handle properly
+# yum install php-mbstring
+
+- Install XML PHP module to provide XML support
+# yum install php-xml
+
+- Install PHP ZIP module to unzip plugins themes
+# yum install php-zip
+
+- Check status, enable and start php-fpm.service
+# systemctl status php-fpm.service
+# systemctl start php-fpm.service
+# systemctl enable php-fpm.service
+# systemctl restart php-fpm.service
+
+
